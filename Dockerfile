@@ -1,9 +1,8 @@
-#install dependencies when needed
 FROM node:18-alpine
+ENV NODE_ENV=production
 WORKDIR /
 COPY ["package.json", "package-lock.json*", "./"]
 RUN npm install --production
 COPY . .
 RUN npm run build
-
-CMD ["npm", "start"]
+CMD ["npm", "run start"]
