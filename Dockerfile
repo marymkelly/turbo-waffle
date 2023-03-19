@@ -1,8 +1,6 @@
-FROM node:18-alpine
-ENV NODE_ENV=production
+FROM node:18
 WORKDIR /
-COPY ["package.json", "package-lock.json*", "./"]
-RUN npm install --production
-COPY . .
-RUN npm run build
-CMD ["npm", "run start"]
+COPY package*.json ./
+RUN npm install --only=production
+COPY . ./
+CMD [ "npm", "start" ]
