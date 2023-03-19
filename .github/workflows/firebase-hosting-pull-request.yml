@@ -15,7 +15,7 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_TAY_SITE }}'
           projectId: tay-site
-       env:
+        env:
          FIREBASE_CLI_EXPERIMENTS: webframeworks
          GOOGLE_API_KEY: '${{ secrets.GOOGLE_API_KEY }}'
          GOOGLE_AUTH_DOMAIN: '${{ secrets.GOOGLE_AUTH_DOMAIN }}'
