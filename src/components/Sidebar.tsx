@@ -24,16 +24,18 @@ export default function Sidebar() {
 		}
 	}, [router]);
 	return (
-		<div id="sidebar" className='w-[380px] lg:min-w-[380px] bg-dark-darkest h-full p-8 pt-10 pb-12 lg:p-12 flex flex-col justify-between'>
+		<div
+			id='sidebar'
+			className='flex h-full w-[380px] flex-col justify-between bg-dark-darkest p-8 pt-10 pb-12 lg:min-w-[380px] lg:p-12'>
 			<div>
-				<div className='flex pt-11 mb-8 lg:mb-12'>
-					<WrenchBrushLogo className='w-7 h-7 md:h-9 md:w-9 lg:w-11 lg:h-11 mt-1.5 mr-4 md:mr-6 lg:mr-8 text-bronze' />
-					<div className='font-novecento-wide uppercase text-white font-medium text-[24px] md:text-[28px] lg:text-[37px]'>
-						<div className='tracking-[0.018em] w-fit'>Taylor</div>
-						<div className='tracking-wider w-fit'>Hamill</div>
+				<div className='mb-8 flex pt-11 lg:mb-12'>
+					<WrenchBrushLogo className='mt-1.5 mr-4 h-7 w-7 text-bronze md:mr-6 md:h-9 md:w-9 lg:mr-8 lg:h-11 lg:w-11' />
+					<div className='font-novecento-wide text-[24px] font-medium uppercase text-white md:text-[28px] lg:text-[37px]'>
+						<div className='w-fit tracking-[0.018em]'>Taylor</div>
+						<div className='w-fit tracking-wider'>Hamill</div>
 					</div>
 				</div>
-				<div className='flex flex-col p-8 lg:p-12 ml-3 md:ml-8'>
+				<div className='ml-3 flex flex-col p-8 md:ml-8 lg:p-12'>
 					{links.map((link, i) => {
 						return link.public ? (
 							<Link
@@ -42,10 +44,10 @@ export default function Sidebar() {
 								onClick={() => {
 									setActiveLink(link.href);
 								}}
-								className={`font-avenir tracking-wide mb-9 ${
+								className={`mb-9 font-avenir tracking-wide ${
 									activeLink === link.href
-										? "text-lg lg:text-[22px] font-semibold text-bronze hover:text-bronze/[85%]"
-										: "text-[17px] lg:text-xl text-heather font-normal hover:text-bronze/75"
+										? "text-lg font-semibold text-bronze hover:text-bronze/[85%] lg:text-[22px]"
+										: "text-[17px] font-normal text-heather hover:text-bronze/75 lg:text-xl"
 								}`}>
 								{link.name}
 							</Link>
@@ -53,10 +55,10 @@ export default function Sidebar() {
 					})}
 				</div>
 			</div>
-			<div className='flex justify-center mb-2.5'>
-				<FacebookIcon className='w-9 h-9 text-bronze/50 hover:text-bronze/70 mr-7 lg:mr-9' />
-				<PinterestIcon className='w-9 h-9 text-bronze/50 hover:text-bronze/70 mr-7 lg:mr-9' />
-				<InstagramIcon className='w-9 h-9 text-bronze/50 hover:text-bronze/70' />
+			<div className='mb-2.5 flex justify-center'>
+				<FacebookIcon className='mr-7 h-9 w-9 text-bronze/50 hover:text-bronze/70 lg:mr-9' />
+				<PinterestIcon className='mr-7 h-9 w-9 text-bronze/50 hover:text-bronze/70 lg:mr-9' />
+				<InstagramIcon className='h-9 w-9 text-bronze/50 hover:text-bronze/70' />
 			</div>
 		</div>
 	);

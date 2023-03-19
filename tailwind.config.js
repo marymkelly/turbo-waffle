@@ -40,7 +40,9 @@ module.exports = {
 				'delayed-opacity-in': "fadein-opacity 1s ease-in 1400ms",
 				'delayed-opacity-out': "fadeout-opacity 1s ease-out 1200ms",
 				'sudden-flex-reveal': "flex-reveal 1s linear 1400ms",
-				'sudden-flex-hide': "flex-hide 1s linear 1200ms"
+				'sudden-flex-hide': "flex-hide 1s linear 1200ms",
+				fadeout: "fadeout-opacity 1s ease-out 200ms",
+				fadein: "fadein-opacity 1s ease-in"
 			},
 			keyframes: {
 				slidefade: {

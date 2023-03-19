@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { ReactElement, useEffect, useRef, useState } from "react";
 import { featureData } from "@/lib/ts/data";
 import HomeIntro from "@/components/Home";
+// import Home from "@/components/Home-copy";
 
 export default function HomePage(props: ReactElement) {
 	let [introAnimationPlayed, setIntroAnimationPlayed] = useState(false);
@@ -42,6 +43,7 @@ export default function HomePage(props: ReactElement) {
 			window.removeEventListener("resize", handleResize);
 		};
 	}, []);
+
 	useEffect(() => {
 		if (introAnimationPlayed) {
 			if (!timerRef.current) {
@@ -172,11 +174,23 @@ export default function HomePage(props: ReactElement) {
 		}
 	}, [featTextVisible]);
 
+	// return (
+	// 	<Home
+	// 		{...props}
+	// 		isMobile={isMobile}
+	// 		fadeLanding={landingImageFaded}
+	// 		animationPlayed={introAnimationPlayed}
+	// 		setAnimationPlayed={setIntroAnimationPlayed}
+	// 		initScrollTextFaded={initScrollTextFaded}
+	// 		featTextVisible={featTextVisible}
+	// 	/>
+	// );
+
 	return (
 		<>
 			<div
-				className={`flex flex-row w-full relative overscroll-auto ${
-					introAnimationPlayed ? "overflow-y-hidden overflow-x-auto" : "overflow-hidden"
+				className={`relative flex w-full flex-row overscroll-auto ${
+					introAnimationPlayed ? "overflow-x-auto overflow-y-hidden" : "overflow-hidden"
 				}`}>
 				{!isMobile ? (
 					<div
@@ -200,11 +214,11 @@ export default function HomePage(props: ReactElement) {
 				) : null}
 				<div
 					id='first-ani-container'
-					className={`absolute w-full h-full flex mt-1 transition-all  ${
+					className={`absolute mt-1 flex h-full w-full transition-all  ${
 						introAnimationPlayed ||
 						(secondIntroAnimationPlayed && secondIntroAnimationPlayed)
-							? "delay-[2000ms] opacity-0"
-							: "delay-[2000ms] opacity-100 duration-500"
+							? "opacity-0 delay-[2000ms]"
+							: "opacity-100 delay-[2000ms] duration-500"
 					}`}>
 					<HomeIntro
 						isMobile={isMobile}

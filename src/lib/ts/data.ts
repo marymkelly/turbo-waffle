@@ -1,3 +1,7 @@
+import FacebookIcon from "@/components/icons/Facebook";
+import InstagramIcon from "@/components/icons/Instagram";
+import PinterestIcon from "@/components/icons/Pinterest";
+
 export interface FeatureCardProps {
 	title: string;
 	date?: {
@@ -13,6 +17,17 @@ export interface FeatureProjProps {
 	image: string;
 	order?: number;
 	card: FeatureCardProps;
+}
+
+interface SocialMediaProps {
+	icon: Function;
+	href: string;
+}
+
+interface NavLinkProps {
+	name: string;
+	href: string;
+	public: boolean;
 }
 
 export const featureData: FeatureProjProps[] = [
@@ -119,4 +134,27 @@ export const galleryPieces = [
 		order: 6,
 		classNames: "object-contain p-8",
 	},
+];
+
+export const socialMedia: SocialMediaProps[] = [
+	{
+		icon: FacebookIcon,
+		href: "#",
+	},
+	{
+		icon: PinterestIcon,
+		href: "#",
+	},
+	{
+		icon: InstagramIcon,
+		href: "#",
+	},
+];
+
+export const navLinks: NavLinkProps[] = [
+	{ name: "Home", href: "/", public: true },
+	{ name: "Gallery", href: "/gallery", public: true },
+	{ name: "About", href: "#", public: false },
+	{ name: "Store", href: "#", public: false },
+	{ name: "Contact", href: "#", public: false },
 ];
